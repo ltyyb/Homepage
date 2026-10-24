@@ -1,0 +1,90 @@
+---
+import Arrow from '../components/Arrow.astro';
+import RhythmArtwork from '../components/RhythmArtwork.astro';
+import ArcadeArtwork from '../components/ArcadeArtwork.astro';
+import '../styles/global.css';
+
+const docs = 'https://ltyyb.auntstudio.com/docs/';
+const steps = [
+  { number: '01', title: '先了解彼此', text: '阅读管理公约，以及与你身份对应的审核须知。', link: `${docs}basic/management/`, label: '阅读管理公约' },
+  { number: '02', title: '认真写下你的回答', text: '按邀请者或宣传文案的指引进入 QQ 审核群，阅读群公告并获取问卷。', link: `${docs}get-started/#填写问卷`, label: '查看问卷填写指引' },
+  { number: '03', title: '下一拍，群里见', text: '提交问卷后留意群内通知，审核通过后按机器人提示申请加入主群。', link: `${docs}get-started/#7-等待审核`, label: '了解审核与结果' },
+];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="这里是六同音游部，厦门六中同安校区音游玩家的交流社群。因节奏相遇，在这里聊音游、分享进步、找到同好。了解我们与加入方式。" />
+    <link rel="icon" type="image/webp" href="/brand.webp" />
+    <link rel="canonical" href="https://ltyyb.auntstudio.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="六同音游部 · 把节奏连在一起" />
+    <meta property="og:description" content="因节奏相遇。厦门六中同安校区音游玩家的交流社群。" />
+    <meta property="og:image" content="https://ltyyb.auntstudio.com/social.svg" />
+    <title>六同音游部 · 把节奏连在一起</title>
+    <script is:inline>
+      try { if (sessionStorage.getItem('ltyyb-motion') === 'paused') document.documentElement.dataset.motion = 'paused'; } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到正文</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#" aria-label="六同音游部，回到顶部"><img src="/brand.webp" alt="" width="36" height="36" /><span>六同音游部<span class="brand-sub">LTYYB / RHYTHM COMMUNITY</span></span></a>
+        <nav class="desktop-nav" aria-label="主导航">
+          <a href="#about">关于我们</a><a href="#rhythm">同频日常</a><a href={docs}>文档中心 <Arrow diagonal /></a>
+        </nav>
+        <div class="header-actions">
+          <button class="motion-toggle" type="button" aria-label="暂停装饰动效" aria-pressed="false" title="暂停装饰动效"><svg class="pause-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M7 5v10m6-10v10" stroke="currentColor" stroke-width="1.5" /></svg><svg class="play-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7 5 8 5-8 5V5Z" stroke="currentColor" stroke-width="1.5" /></svg></button>
+          <a class="pill header-join" href="#join">加入我们 <Arrow diagonal /></a>
+        </div>
+      </div>
+      <nav class="mobile-nav container" aria-label="移动端导航"><a href="#about">关于我们</a><a href="#rhythm">同频日常</a><a href={docs}>文档中心 <Arrow diagonal /></a></nav>
+    </header>
+    <main id="main">
+      <section class="hero container" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> XIAMEN · TONG’AN · RHYTHM</p>
+          <h1 id="hero-title">把节奏<br /><span class="underlined">连在一起<svg viewBox="0 0 480 40" preserveAspectRatio="none" aria-hidden="true"><path d="M3 23C95 3 315 2 465 13 373 11 183 22 94 32c77-8 264-9 380-3" /></svg></span><span class="title-period">.</span></h1>
+          <p class="hero-description">这里是六同音游部。<br />因音游相遇，让每一份热爱都有回响。</p>
+          <div class="hero-actions"><a class="pill pill-primary" href="#join">找到你的同频 <Arrow diagonal /></a><a class="text-link" href="#about">认识一下 <span aria-hidden="true">↓</span></a></div>
+          <p class="hero-identity">厦门六中同安校区音游部 <span>一个因热爱而聚的音游社群</span></p>
+        </div>
+        <div class="hero-visual"><RhythmArtwork /><button class="beat-trigger" type="button" aria-label="点击回应节拍"><span class="beat-dot"></span><span class="beat-label">点一下，对上这一拍</span><span class="beat-icon" aria-hidden="true">↗</span></button><span class="beat-feedback" role="status" aria-live="polite"></span></div>
+        <div class="hero-bottom"><span class="mono">SCROLL TO CONNECT</span><a href="#about" aria-label="向下了解六同音游部"><span class="scroll-line"></span>向下探索</a><span class="mono">01 / THE START</span></div>
+      </section>
+
+      <div class="rhythm-strip-wrap" aria-hidden="true"><div class="rhythm-strip"><div class="strip-track">RHYTHM <span>↗</span> CONNECTION <span class="asterisk">✳</span> ONE MORE TRY <span>↗</span> 六同音游部 <span class="asterisk">✳</span> RHYTHM <span>↗</span> CONNECTION <span class="asterisk">✳</span> ONE MORE TRY <span>↗</span> 六同音游部 <span class="asterisk">✳</span></div></div></div>
+
+      <section class="about section container" id="about" aria-labelledby="about-title">
+        <div class="section-label"><span class="eyebrow">01 / ABOUT US</span><span class="mono">从同安出发，以节奏相连</span></div>
+        <div class="about-grid">
+          <div class="reveal"><h2 id="about-title">同频，<br />不必同一种<span class="muted">玩法。</span></h2><div class="about-mark" aria-hidden="true"><svg viewBox="0 0 220 100" fill="none"><path d="M6 54c34-53 58-59 70-35s-13 72-20 61S80 5 111 12s-15 76-8 73 49-70 65-64-5 54 2 52 25-23 43-16" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg><span class="mono">FIND YOUR PEOPLE.</span></div></div>
+          <div class="about-body reveal"><p class="intro">我们是厦门六中同安校区音游玩家的交流社群，简称「六同音游部」。</p><p>一张谱面、一段旋律、一次终于突破的成绩，都可以是聊天的开始。我们希望这里能成为一个让玩家安心交流、彼此帮助的地方。</p><p>无论你是本校区学生、往届毕业生，还是对我们感兴趣的其他学校学生，都可以按流程申请加入。</p><a class="text-link" href={`${docs}basic/management/`}>看看我们共同的约定 <Arrow diagonal /></a></div>
+        </div>
+      </section>
+
+      <section class="rhythm-section section container" id="rhythm" aria-labelledby="rhythm-title">
+        <div class="section-label"><span class="eyebrow">02 / SAME FREQUENCY</span><span class="mono">热爱有很多种打开方式</span></div>
+        <div class="rhythm-heading reveal"><h2 id="rhythm-title">总有一拍，<br />让我们<span class="serif-word">聊得来。</span></h2><p>不只是在判定线上相遇。<br />也聊喜欢的曲子、难住你的配置，<br />和那句「我终于打过了」。</p></div>
+        <div class="playground reveal" data-mode="touch">
+          <div class="playground-info"><span class="eyebrow">DIFFERENT WAYS TO PLAY</span><h3>你的主场，<br />是哪一种？</h3><div class="mode-buttons" role="group" aria-label="切换音游玩法示意"><button type="button" data-mode="touch" aria-pressed="true">指尖 <span>01</span></button><button type="button" data-mode="keys" aria-pressed="false">按键 <span>02</span></button><button type="button" data-mode="arcade" aria-pressed="false">街机 <span>03</span></button></div><p class="mode-copy" aria-live="polite">点、划、长按。小小的屏幕，也装得下整首歌的起伏。</p><span class="playground-note mono">玩法示意 / 不限游戏，不限平台</span></div>
+          <div class="playground-art" aria-hidden="true"><div class="stage-grid"></div><div class="touch-stage stage"><div class="touch-lane"><i></i><i></i><i></i><i></i><i></i><i></i><b></b><b></b><b></b></div><span class="judgement">JUST <span>RIGHT.</span></span><span class="stage-caption mono">TAP / HOLD / SLIDE</span></div><div class="keys-stage stage"><div class="key-notes"><i></i><i></i><i></i><i></i></div><div class="keys"><span>D</span><span>F</span><span>J</span><span>K</span></div><span class="stage-caption mono">FOUR KEYS. ENDLESS POSSIBILITIES.</span></div><div class="arcade-stage stage"><ArcadeArtwork /><span class="stage-caption mono">8 BUTTONS / TOUCH / SLIDE</span></div><span class="stage-corner mono">LT / PLAYGROUND</span></div>
+        </div>
+        <div class="moments"><div class="reveal"><span class="moment-number mono">01 — SHARE</span><h3>好曲子，值得被听见。</h3><p>把循环播放的那一首，分享给同样喜欢音乐的人。</p></div><div class="reveal"><span class="moment-number mono">02 — GROW</span><h3>小小进步，也值得开心。</h3><p>从第一次通关到突破瓶颈，认真对待每一次「再来」。</p></div><div class="reveal"><span class="moment-number mono">03 — CONNECT</span><h3>从「你也玩」开始。</h3><p>聊玩法、交流心得，让共同话题自然发生。</p></div></div>
+      </section>
+
+      <section class="values-section section container" aria-labelledby="values-title"><div class="section-label"><span class="eyebrow">03 / OUR COMMON GROUND</span><span class="mono">比成绩更重要的事</span></div><div class="values-grid"><h2 class="reveal" id="values-title">认真打歌。<br /><span class="muted">友好相处。</span><svg class="values-star" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="m50 0 5 36 30-21-21 30 36 5-36 5 21 30-30-21-5 36-5-36-30 21 21-30-36-5 36-5-21-30 30 21Z" fill="currentColor" /></svg></h2><div class="value-list"><article class="reveal"><span class="mono">01</span><div><h3>真实，是交流的前提。</h3><p>分享自己的经历与成绩，拒绝盗图、伪造成绩和冒充游玩。</p></div><Arrow diagonal /></article><article class="reveal"><span class="mono">02</span><div><h3>尊重每一种热爱。</h3><p>不因游戏或水平排挤他人，让讨论保持友好、包容。</p></div><Arrow diagonal /></article><article class="reveal"><span class="mono">03</span><div><h3>一起维护这个空间。</h3><p>遵守管理公约，对自己说出的话、分享的内容负责。</p></div><Arrow diagonal /></article><a class="text-link" href={`${docs}basic/management/`}>阅读完整管理公约 <Arrow diagonal /></a></div></div></section>
+
+      <section class="join-section section container" id="join" aria-labelledby="join-title"><div class="section-label"><span class="eyebrow">04 / YOUR NEXT BEAT</span><span class="mono">留个位置，给下一位同好</span></div><div class="join-heading reveal"><div><span class="join-kicker"><span class="status-dot"></span> READY WHEN YOU ARE</span><h2 id="join-title">下一拍，<br /><span>一起<span class="join-scribble">？<svg viewBox="0 0 120 120" fill="none" aria-hidden="true"><path d="M85 10C28-5-5 52 14 87s99 28 98-19S74-4 40 9" /></svg></span></span></h2></div><div class="join-intro"><p>先认识我们的约定，<br />再让我们认识你。</p><a class="pill pill-primary" href={`${docs}get-started/`}>查看完整申请流程 <Arrow diagonal /></a><span>问卷审核 · 请以最新文档与群公告为准</span></div></div><div class="join-steps">{steps.map(step => <article class="join-step reveal"><span class="step-number mono">{step.number}<span aria-hidden="true">↗</span></span><h3>{step.title}</h3><p>{step.text}</p><a class="text-link" href={step.link}>{step.label} <Arrow diagonal /></a></article>)}</div><div class="identity-links"><span>开始之前，选对你的审核须知：</span><a href={`${docs}basic/verify/`}>本校区学生 <Arrow diagonal /></a><a href={`${docs}basic/verify-foreign/`}>非本校区学生（含东渡校区）<Arrow diagonal /></a></div></section>
+
+      <section class="faq section container" aria-labelledby="faq-title"><div><p class="eyebrow">A FEW MORE THINGS</p><h2 id="faq-title">你可能还想问</h2></div><div class="faq-list"><details><summary>不是同安校区的学生，也能加入吗？<span aria-hidden="true">+</span></summary><p>可以。其他学校学生及东渡校区学生均可按非本校区流程申请；往届毕业生也可申请。请阅读<a href={`${docs}basic/verify-foreign/`}>对应审核须知</a>，并以最新要求为准。</p></details><details><summary>在哪里找到审核群和问卷？<span aria-hidden="true">+</span></summary><p>请按邀请者或宣传文案的指引加入 QQ 审核群，阅读群公告后，按<a href={`${docs}get-started/`}>申请流程</a>获取适合自己身份的问卷。问卷提交后留意群内审核通知。</p></details><details><summary>在哪里查看社群规则和最新要求？<span aria-hidden="true">+</span></summary><p><a href={docs}>文档中心</a>收录管理公约、审核须知与申请流程。相关要求可能调整，请结合最新群公告阅读。</p></details></div></section>
+    </main>
+    <footer class="site-footer container"><div class="footer-top"><a class="footer-wordmark" href="#" aria-label="六同音游部，回到顶部">LTYYB<span>↗</span></a><p>各有节奏。<br />在这里，同频。</p><div><a href={docs}>文档中心 <Arrow diagonal /></a><a href="https://github.com/ltyyb">GitHub <Arrow diagonal /></a><a href="#join">加入我们 <Arrow diagonal /></a></div></div><div class="footer-bottom"><span>© {new Date().getFullYear()} 六同音游部</span><span>厦门六中同安校区音游玩家交流社群</span><a href="#">BACK TO TOP ↑</a></div></footer>
+    <script src="../scripts/home.ts"></script>
+  </body>
+</html>

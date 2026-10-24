@@ -1,0 +1,61 @@
+---
+// An original schematic inspired by maimai DX's circular screen and eight buttons.
+const polar = (radius: number, angle: number) => {
+  const radians = (angle * Math.PI) / 180;
+  return `${200 + Math.sin(radians) * radius} ${200 - Math.cos(radians) * radius}`;
+};
+const buttons = Array.from({ length: 8 }, (_, index) => {
+  const start = index * 45 + 7;
+  const end = index * 45 + 38;
+  return {
+    body: `M ${polar(159, start)} A 159 159 0 0 1 ${polar(159, end)} L ${polar(141, end)} A 141 141 0 0 0 ${polar(141, start)} Z`,
+    light: `M ${polar(168, start + 3)} A 168 168 0 0 1 ${polar(168, end - 3)}`,
+    delay: `${index * -0.5}s`,
+  };
+});
+const notes = [
+  { angle: 112.5, delay: '-0.3s', double: false },
+  { angle: 202.5, delay: '-1.2s', double: true },
+  { angle: 337.5, delay: '-1.2s', double: true },
+  { angle: 67.5, delay: '-2.3s', double: false },
+  { angle: 247.5, delay: '-3.2s', double: false },
+];
+---
+
+<svg class="arcade-machine" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+  <rect x="18" y="18" width="364" height="364" rx="100" fill="#101010" stroke="#333331" />
+  <circle cx="200" cy="200" r="177" stroke="#454541" />
+  <circle cx="200" cy="200" r="134" fill="#0a0a0a" stroke="#555550" />
+  <circle class="arcade-judgement-ring" cx="200" cy="200" r="121" stroke="#aaa9a0" />
+  <circle cx="200" cy="200" r="65" stroke="#252524" stroke-dasharray="2 8" />
+  {buttons.map(button => (
+    <g>
+      <path d={button.body} fill="#1b1b19" stroke="#898981" stroke-width="1.2" />
+      <path class="arcade-button-light" d={button.light} stroke-width="2.5" stroke-linecap="round" style={`animation-delay:${button.delay}`} />
+    </g>
+  ))}
+  <g stroke="#333330" stroke-width="1">
+    <path d="M193 200h14m-7-7v14" />
+    <path d="M200 76v8m124 116h-8M200 324v-8M76 200h8" />
+  </g>
+  <g class="arcade-slide-track" stroke="#a0c3ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m238 113-7 4 2 8m-6 15-7 4 2 8m-6 15-7 4 2 8m-6 15-7 4 2 8m-6 15-7 4 2 8m-6 15-7 4 2 8m-6 15-7 4 2 8m-6 15-7 4 2 8" />
+  </g>
+  {notes.map(note => (
+    <g transform={`rotate(${note.angle} 200 200)`}>
+      <g class:list={['arcade-tap', { 'arcade-double': note.double }]} style={`animation-delay:${note.delay}`}>
+        <circle cx="200" cy="200" r="9" fill="#0a0a0a" stroke-width="2.5" />
+        <circle cx="200" cy="200" r="4" stroke-width="0.8" opacity=".5" />
+      </g>
+    </g>
+  ))}
+  <g transform="translate(246.3 88.2)">
+    <g class="arcade-slide-star">
+      <path d="m0-12 3.5 7.2 8 1.2-5.8 5.7L7 10 0 6.3-7 10l1.3-7.9-5.8-5.7 8-1.2Z" fill="#0a0a0a" stroke="#a0c3ec" stroke-width="2" stroke-linejoin="round" />
+    </g>
+  </g>
+  <g fill="#666660">
+    <circle cx="67" cy="67" r="2" /><circle cx="333" cy="67" r="2" />
+    <circle cx="333" cy="333" r="2" /><circle cx="67" cy="333" r="2" />
+  </g>
+</svg>

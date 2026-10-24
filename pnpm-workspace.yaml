@@ -1,0 +1,4 @@
+storeDir: .pnpm-store
+
+allowBuilds:
+  fsevents@2.3.3: true

@@ -13,13 +13,13 @@ Static Astro site with TypeScript and native CSS.
 
 ## Build, Test, and Development Commands
 
-Use Node.js 22.23.4 or newer and npm.
+Use Node.js 22.23.4+ and pnpm 12.15.0 (`packageManager`).
 
-- `npm ci`: install dependencies from `package-lock.json`.
-- `npm run dev`: start local development at `http://127.0.0.1:4321/`.
-- `npm run check`: run Astro and TypeScript diagnostics.
-- `npm run build`: generate the static site in `dist/`.
-- `npm run preview`: serve the built site locally.
+- `pnpm install --frozen-lockfile`: install dependencies from `pnpm-lock.yaml`.
+- `pnpm dev`: develop at `http://127.0.0.1:4321/`.
+- `pnpm check`: run Astro and TypeScript diagnostics.
+- `pnpm build`: generate the static site in `dist/`.
+- `pnpm preview`: serve the built site locally.
 
 ## Coding Style & Naming Conventions
 
@@ -33,7 +33,7 @@ Read `DESIGN.md` before visual changes. Preserve the dark canvas, thin borders, 
 
 ## Testing Guidelines
 
-No test framework, naming convention, or coverage threshold is configured. Run `npm run check` and `npm run build` for code changes.
+No test framework, naming convention, or coverage threshold is configured. Run `pnpm check` and `pnpm build` for code changes.
 
 For UI changes, inspect 320, 375, 768, and 1440 pixel widths. Check overflow, mode switching, navigation, FAQ expansion, keyboard focus, animation pause, and `prefers-reduced-motion`. Keep essential content accessible without JavaScript. Distinguish browser emulation from actual phone testing.
 

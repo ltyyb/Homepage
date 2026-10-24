@@ -4,22 +4,26 @@
 
 ## 本地开发
 
-需要 Node.js 22.23.4+（建议 Node.js 24 LTS）和 npm。
+需要 Node.js 22.23.4+（建议 Node.js 24 LTS）和 pnpm 12.15.0，包管理器版本由 `package.json` 的 `packageManager` 字段固定。
+
+安装方式参阅 [pnpm 官方指南](https://pnpm.io/installation)。已提供 Corepack 的 Node.js 环境可先执行 `corepack enable pnpm`。
 
 ```sh
-npm ci
-npm run dev
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 打开终端显示的本地地址，默认 `http://127.0.0.1:4321/`。
 
 ```sh
-npm run check
-npm run build
-npm run preview
+pnpm check
+pnpm build
+pnpm preview
 ```
 
 构建产物在 `dist/`，可部署到静态托管服务。站点部署在根路径，`/docs/` 继续由已有文档站提供；托管时请保留该路径的独立配置。生产域名在 `astro.config.mjs`、页面 canonical 和 Open Graph 元数据中配置。
+
+依赖统一使用 `pnpm-lock.yaml`。新增依赖使用 `pnpm add`，开发依赖使用 `pnpm add -D`；更新依赖后同步提交锁文件。`pnpm-workspace.yaml` 配置项目缓存 `.pnpm-store/` 和依赖构建脚本的允许范围，缓存不进入版本控制。
 
 ## 内容与设计
 
